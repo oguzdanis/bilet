@@ -1,13 +1,12 @@
 package com.oguzdanis.biletlemeuygulamasi.controller;
 
 import com.oguzdanis.biletlemeuygulamasi.dto.TicketDto;
+import com.oguzdanis.biletlemeuygulamasi.entity.Ticket;
 import com.oguzdanis.biletlemeuygulamasi.service.impl.TicketServiceImpl;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.xml.ws.Response;
 
 @RestController
@@ -24,5 +23,10 @@ public class TicketController {
     public ResponseEntity<TicketDto> getById(@PathVariable(value = "id",required = true) Long id){
         TicketDto ticketDto = ticketServiceImpl.getById(id);
         return ResponseEntity.ok(ticketDto);
+    }
+
+    @PostMapping
+    public ResponseEntity<TicketDto> createTicket(@Valid @RequestBody TicketDto ticket){
+        return ResponseEntity.ok(ticketServiceImpl.save(ticket));
     }
 }

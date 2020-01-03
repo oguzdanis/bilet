@@ -20,6 +20,14 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
+    public TicketDto save(TicketDto ticket) {
+        Ticket t = modelMapper.map(ticket,Ticket.class);
+        ticket.setId(t.getId());
+        t = ticketRepository.save(t);
+        return ticket;
+    }
+
+    @Override
     public TicketDto getById(Long id) {
         Ticket ticket = ticketRepository.getOne(id);
         return modelMapper.map(ticket,TicketDto.class);
