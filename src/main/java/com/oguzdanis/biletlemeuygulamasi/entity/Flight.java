@@ -21,12 +21,9 @@ public class Flight {
     @Temporal(TemporalType.DATE)
     private Date date;
 
-   
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "route_id", referencedColumnName = "id")
     private Route route;
-
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "airlineCompany_id")
@@ -41,7 +38,13 @@ public class Flight {
     public Flight() {
     }
 
-
+    public Flight(int kontenjan, Date date, Route route, AirlineCompany airlineCompany, List<Ticket> ticket) {
+        this.kontenjan = kontenjan;
+        this.date = date;
+        this.route = route;
+        this.airlineCompany = airlineCompany;
+        this.ticket = ticket;
+    }
 
     public Long getId() {
         return id;
