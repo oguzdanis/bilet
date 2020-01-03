@@ -12,6 +12,7 @@ public class FlightDto {
 
     private Long id;
     private int kontenjan;
+    private int kontenjanSabit;
     private Date date;
     private Route route;
     private AirlineCompany airlineCompany;
@@ -20,9 +21,10 @@ public class FlightDto {
     public FlightDto() {
     }
 
-    public FlightDto(Long id, int kontenjan, Date date, Route route, AirlineCompany airlineCompany, List<Ticket> ticket) {
+    public FlightDto(Long id, int kontenjan,int kontenjanSabit, Date date, Route route, AirlineCompany airlineCompany, List<Ticket> ticket) {
         this.id = id;
         this.kontenjan = kontenjan;
+        this.kontenjanSabit = kontenjanSabit;
         this.date = date;
         this.route = route;
         this.airlineCompany = airlineCompany;
@@ -43,6 +45,14 @@ public class FlightDto {
 
     public void setKontenjan(int kontenjan) {
         this.kontenjan = kontenjan;
+    }
+
+    public int getKontenjanSabit() {
+        return kontenjanSabit;
+    }
+
+    public void setKontenjanSabit(int kontenjanSabit) {
+        this.kontenjanSabit = kontenjanSabit;
     }
 
     public Date getDate() {

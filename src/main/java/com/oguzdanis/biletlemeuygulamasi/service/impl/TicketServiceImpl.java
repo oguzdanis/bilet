@@ -1,6 +1,7 @@
 package com.oguzdanis.biletlemeuygulamasi.service.impl;
 
 import com.oguzdanis.biletlemeuygulamasi.dto.TicketDto;
+import com.oguzdanis.biletlemeuygulamasi.entity.Flight;
 import com.oguzdanis.biletlemeuygulamasi.entity.Ticket;
 import com.oguzdanis.biletlemeuygulamasi.repository.TicketRepository;
 import com.oguzdanis.biletlemeuygulamasi.service.TicketService;
@@ -22,7 +23,7 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public TicketDto save(TicketDto ticket) {
         Ticket t = modelMapper.map(ticket,Ticket.class);
-        ticket.setId(t.getId());
+
         t = ticketRepository.save(t);
         return ticket;
     }
