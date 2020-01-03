@@ -18,6 +18,8 @@ public class Flight {
 
     private int kontenjan;
 
+    private int kontenjanSabit;
+
     @Temporal(TemporalType.DATE)
     private Date date;
 
@@ -38,8 +40,9 @@ public class Flight {
     public Flight() {
     }
 
-    public Flight(int kontenjan, Date date, Route route, AirlineCompany airlineCompany, List<Ticket> ticket) {
+    public Flight(int kontenjan,int kontenjanSabit, Date date, Route route, AirlineCompany airlineCompany, List<Ticket> ticket) {
         this.kontenjan = kontenjan;
+        this.kontenjanSabit = kontenjanSabit;
         this.date = date;
         this.route = route;
         this.airlineCompany = airlineCompany;
@@ -60,6 +63,14 @@ public class Flight {
 
     public void setKontenjan(int kontenjan) {
         this.kontenjan = kontenjan;
+    }
+
+    public int getKontenjanSabit() {
+        return kontenjanSabit;
+    }
+
+    public void setKontenjanSabit(int kontenjanSabit) {
+        this.kontenjanSabit = kontenjanSabit;
     }
 
     public Date getDate() {
@@ -99,6 +110,7 @@ public class Flight {
         return "Flight{" +
                 "id=" + id +
                 ", kontenjan=" + kontenjan +
+                ", kontenjanSabit=" + kontenjanSabit +
                 ", date=" + date +
                 ", route=" + route +
                 ", airlineCompany=" + airlineCompany +
