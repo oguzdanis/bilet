@@ -21,7 +21,7 @@ public class Flight {
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    //ucusun rotasi olsun
+   
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "route_id", referencedColumnName = "id")
@@ -33,20 +33,15 @@ public class Flight {
     private AirlineCompany airlineCompany;
 
     @JsonIgnore
-    @JoinColumn(name = "flight_id")
-    @OneToMany(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "flight_id")
+    //@OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "flight")
     private List<Ticket> ticket;
 
     public Flight() {
     }
 
-    public Flight(int kontenjan, Date date, Route route, AirlineCompany airlineCompany, List<Ticket> ticket) {
-        this.kontenjan = kontenjan;
-        this.date = date;
-        this.route = route;
-        this.airlineCompany = airlineCompany;
-        this.ticket = ticket;
-    }
+
 
     public Long getId() {
         return id;

@@ -22,9 +22,11 @@ public class Ticket {
     @Enumerated(EnumType.STRING)
     private TicketStatus ticketStatus;
 
-    //@JsonIgnore
-    @ManyToOne(optional = true,fetch = FetchType.LAZY)
-    @JoinColumn(name="flight_id")
+    //@ManyToOne(optional = true,fetch = FetchType.LAZY)
+    //@JoinColumn(name="flight_id")
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "flight_id",nullable=false)
     private Flight flight;
 
     public Ticket() {
